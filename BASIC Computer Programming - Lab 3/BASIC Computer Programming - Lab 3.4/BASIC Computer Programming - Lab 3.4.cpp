@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 1. ประกาศโครงสร้าง (struct) ตามโจทย์
 struct Student {
     char name[50];
     int studentId;
