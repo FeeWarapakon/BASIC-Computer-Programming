@@ -1,20 +1,33 @@
 #include <stdio.h>
-
-struct Product {
-    char name[50];
-    int productId;
-    float price;
-};
+#define SIZE 5
 
 int main() {
-    struct Product item;
+    int numbers[SIZE];
+    int even_count = 0;
+    int odd_count = 0;
+    int i;
 
     printf("Enter Input : ");
-    if (scanf("%d %f %s", &item.productId, &item.price, item.name) != 3) {
-        return 1;
+    for (i = 0; i < SIZE; i++) {
+        if (scanf("%d", &numbers[i]) != 1) {
+            return 1;
+        }
     }
-    printf("ID: %d, Price: %.2f, Name: %s\n", item.productId, item.price, item.name);
+    for (i = 0; i < SIZE; i++) {
+        if (numbers[i] % 2 == 0) {
+            even_count++;
+        } else {
+            odd_count++;
+        }
+    }
+    printf("\n--- NUMBER CLASSIFICATION REPORT ---\n");
+    printf("Recorded Numbers: ");
+    for (i = 0; i < SIZE; i++) {
+        printf("%d ", numbers[i]);
+    }
+    printf("\n");
+    printf("Total Even Numbers Found: %d\n", even_count);
+    printf("Total Odd Numbers Found: %d\n", odd_count);
 
     return 0;
-
-}//end function 
+}//end function
