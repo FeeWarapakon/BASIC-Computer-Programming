@@ -1,20 +1,28 @@
 #include <stdio.h>
-
-struct Product {
-    char name[50];
-    int productId;
-    float price;
-};
+#define ROWS 3
+#define COLS 3
 
 int main() {
-    struct Product item;
+    int data[ROWS][COLS];
+    int i, j;
 
     printf("Enter Input : ");
-    if (scanf("%d %f %s", &item.productId, &item.price, item.name) != 3) {
-        return 1;
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            if (scanf("%d", &data[i][j]) != 1) {
+                return 1;
+            }
+        }
     }
-    printf("ID: %d, Price: %.2f, Name: %s\n", item.productId, item.price, item.name);
+    printf("\n--- TWO-DIMENSIONAL ARRAY REPORT ---\n");
+    printf("Array Size: %d Rows x %d Columns\n", ROWS, COLS);
+    printf("Content (Table Format):\n");
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            printf("%d ", data[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
-
-}//end function 
+}//end function
