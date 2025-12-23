@@ -1,20 +1,42 @@
 #include <stdio.h>
-
-struct Product {
-    char name[50];
-    int productId;
-    float price;
-};
+#define MAX_SIZE 10
 
 int main() {
-    struct Product item;
+    int data[MAX_SIZE];
+    int N;
+    int search_value;
+    int count = 0;
+    int i;
 
     printf("Enter Input : ");
-    if (scanf("%d %f %s", &item.productId, &item.price, item.name) != 3) {
+    if (scanf("%d", &N) != 1) {
         return 1;
     }
-    printf("ID: %d, Price: %.2f, Name: %s\n", item.productId, item.price, item.name);
+    if (N > MAX_SIZE || N < 1) {
+        N = MAX_SIZE;
+    }
+    for (i = 0; i < N; i++) {
+        if (scanf("%d", &data[i]) != 1) {
+            return 1;
+        }
+    }
+    if (scanf("%d", &search_value) != 1) {
+        return 1;
+    }
+    for (i = 0; i < N; i++) {
+        if (data[i] == search_value) {
+            count++;
+        }
+    }
+    printf("\n--- FREQUENCY ANALYSIS REPORT ---\n");
+    printf("Total elements recorded (N): %d\n", N);
+    printf("Recorded Numbers: ");
+    for (i = 0; i < N; i++) {
+        printf("%d ", data[i]);
+    }
+    printf("\n");
+    printf("Search Value: %d\n", search_value);
+    printf("Frequency Count: %d\n", count);
 
     return 0;
-
-}//end function 
+}//end function
