@@ -1,27 +1,23 @@
 #include <stdio.h>
 
-int calculate_area(int length, int width);
-
-int main() {
-    int input_length;
-    int input_width;
-    int result_area;
-
-    
-    printf("Enter rectangle length (integer): ");
-    scanf("%d", &input_length);
-
-    printf("Enter rectangle width (integer): ");
-    scanf("%d", &input_width);
-    result_area = calculate_area(input_length, input_width);
-    printf("\n--- RECTANGLE AREA REPORT ---\n");
-    printf("Length: %d\n", input_length);
-    printf("Width: %d\n", input_width);
-    printf("Calculated Area: %d\n", result_area);
-    return 0;
+void increase_value(int *number_ptr) {
+    if (number_ptr != NULL) {
+        *number_ptr = *number_ptr + 10;
+    }
 }
 
-int calculate_area(int length, int width) {
-    int area = length * width;
-    return area; 
+int main() {
+    int data;
+    
+    printf("Enter initial integer value: ");
+    if (scanf("%d", &data) != 1) {
+        return 1;
+    }
+
+    printf("\n--- POINTER MODIFICATION REPORT ---\n");
+    printf("1. Value BEFORE function call: %d\n", data);
+    increase_value(&data);
+    printf("2. Value AFTER function call: %d\n", data);
+
+    return 0;
 }//end function
